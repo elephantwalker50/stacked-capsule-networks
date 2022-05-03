@@ -100,7 +100,7 @@ class PCAE(nn.Module):
         if nonlinear:
             scale_x, scale_y = torch.sigmoid(scale_x) + 1e-2, torch.sigmoid(scale_y) + 1e-2
             trans_x, trans_y, shear = torch.tanh(trans_x * 5.),  torch.tanh(trans_y * 5.), torch.tanh(shear * 5.)
-            theta *= 2. * math.pi
+            theta = theta*2. * math.pi
         else:
             scale_x, scale_y = (abs(i) + 1e-2 for i in (scale_x, scale_y))
 
